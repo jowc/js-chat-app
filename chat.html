@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>ChatApp</title>
+</head>
+
+<body class="flex items-center justify-center h-screen overflow-hidden">
+
+    <main class="max-w-xl w-full h-96 m-auto rounded shadow">
+
+        <header class="bg-purple-600 text-white py-4 px-2 text-center font-semibold text-xl"> ChatApp </header>
+
+        <section id="chat-messages" class="p-4 h-full overflow-y-auto">
+
+            <!-- chat messages here -->
+
+        </section>
+
+        <footer class="bg-purple-600 py-4 px-2 rounded">
+
+            <div class="flex space-x-4 w-full px-2">
+                <input id="chatMessage" class="p-2 w-4/5" type="text">
+                <button class="rounded-full bg-white text-purple-600 py-2 px-4 w-auto font-medium"
+                    onclick="sendMessage()">Send</button>
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js"
+        integrity="sha512-/l6vieC+YxaZywUhmqs++8uF9DeMvJE61ua5g+UK0TuHZ4TkTgB1Gm1n0NiA86uEOM9JJ6JUwyR0hboKO0fCng=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        // var qs = require('qs');
+        const chatInput = document.getElementById('chatMessage')
+        const chatContainer = document.getElementById('chat-messages')
+
+        const { userName } = Qs.parse(location.search, {
+            ignoreQueryPrefix: true,
+        });
+
+        console.log(userName)
+
+
+        const sendMessage = () => {
+            let userMessage = chatInput.value
+            const div = document.createElement('div');
+            div.classList.add('chats')
+            div.innerHTML = `
+            <div id="chats">
+                <p>${userName}</p>
+                <p>${userMessage}</p>
+            </div>
+            `
+            chatContainer.appendChild(div)
+
+            return chatContainer.scrollTop = chatContainer.scrollHeight
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

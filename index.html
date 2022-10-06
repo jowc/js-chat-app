@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>ChatApp</title>
+</head>
+
+<body class="flex items-center justify-center h-screen overflow-hidden">
+
+    <main class="max-w-l p-6 h-36 m-auto flex flex-col justify-center rounded shadow">
+
+        <header class="py-4 px-2 text-center font-semibold text-xl"> Welcome to ChatApp
+        </header>
+
+        <form action="chat.html" name="chatForm" class="mt-4" onsubmit="submitUser(document.chatForm.userName)">
+            <div class="flex space-x-4 w-full px-2">
+                <input id="chatUser" class="p-2 w-4/5 bg-purple-50 text-gray-900 outline-purple-600" type="text"
+                    name="userName">
+                <button class="rounded-full bg-purple-600 text-white py-2 px-4 w-auto font-medium">Send</button>
+            </div>
+        </form>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        const chatUser = document.getElementById('chatUser')
+        const chatContainer = document.getElementById('chat-messages')
+
+
+        const submitUser = (e, user) => {
+            e.preventDefault()
+            // let chatUser = chatUser.value
+            console.log(user)
+
+            return window.location('chat.html')
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
