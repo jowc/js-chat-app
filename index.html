@@ -17,7 +17,7 @@
         <header class="py-4 px-2 text-center font-semibold text-xl"> Welcome to ChatApp
         </header>
 
-        <form action="chat.html" name="chatForm" class="mt-4" onsubmit="submitUser(document.chatForm.userName)">
+        <form action="chat.html" name="chatForm" id="chatForm" class="mt-4">
             <div class="flex space-x-4 w-full px-2">
                 <input id="chatUser" class="p-2 w-4/5 bg-purple-50 text-gray-900 outline-purple-600" type="text"
                     name="userName">
@@ -26,26 +26,6 @@
         </form>
 
     </main>
-
-
-    <script src="script.js"></script>
-
-    <script>
-
-        const chatUser = document.getElementById('chatUser')
-        const chatContainer = document.getElementById('chat-messages')
-
-
-        const submitUser = (e, user) => {
-            e.preventDefault()
-            // let chatUser = chatUser.value
-            console.log(user)
-
-            return window.location('chat.html')
-        }
-
-
-    </script>
 
 
 
